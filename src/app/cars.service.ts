@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
@@ -11,9 +11,13 @@ export class CarsService {
     constructor(private http: HttpClient) {
     }
 
+    // разберем добавление headers на примере get-запросов
+    // headers содержит массу полезных данных
 
     // метод get
     getCars() {
+        const headers = new HttpHeaders();
+
         return this.http.get('http://localhost:3000/cars')
             .pipe(map(response => {
                 return response;
