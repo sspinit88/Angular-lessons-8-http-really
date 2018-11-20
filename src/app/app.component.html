@@ -21,9 +21,11 @@
     <ul class="list-group">
         <li class="list-group-item"
             *ngFor="let car of cars">
-            <span class="badge">
+            <span class="badge"
+                  [ngStyle]="{backgroundColor: car.color}">
                 {{car.id}}</span> {{car.name}} ({{car.color}})
-            <button class="btn btn-xs btn-info">Изменить цвет</button>
+            <button class="btn btn-xs btn-info"
+                    (click)="setRandomColor(car)">Изменить цвет</button>
         </li>
     </ul>
 </div>

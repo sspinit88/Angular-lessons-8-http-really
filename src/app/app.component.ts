@@ -9,9 +9,18 @@ import {CarsService} from './cars.service';
 
 export class AppComponent implements OnInit {
 
-    cars = [];
+    cars: any[] = [];
     newCarName = '';
     newCarColor = '';
+    colors = [
+        'red',
+        'green',
+        'grey',
+        'black',
+        'yellow',
+        'blue',
+        'pink'
+    ];
 
     constructor(private CarsServices: CarsService) {
 
@@ -43,5 +52,19 @@ export class AppComponent implements OnInit {
     }
 
     // post
+
+    getRandomColor() {
+        const num = Math.round(Math.random() * (this.colors.length - 1));
+        return this.colors[num];
+    }
+
+    setRandomColor(car: any[]) {
+        console.log(car);
+        this.CarsServices
+            .changeColor(car, this.getRandomColor())
+            .subscribe((data) => {
+                console.log(data);
+            });
+    }
 
 }

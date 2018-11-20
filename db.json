@@ -2,13 +2,18 @@
   "cars": [
     {
       "name": "Ford",
-      "color": "white",
+      "color": "black",
       "id": 1
     },
     {
       "name": "Mazda",
-      "color": "red",
+      "color": "blue",
       "id": 2
+    },
+    {
+      "name": "Lada",
+      "color": "Grey",
+      "id": 3
     }
   ]
 }
