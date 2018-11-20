@@ -1,9 +1,28 @@
 <div class="col-xs-8 col-xs-offset-2">
-  <button class="btn btn-primary" (click)="loadCars()">Загрузить машины</button>
-  <hr>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let car of cars">
-      <span class="badge">{{car.id}}</span> {{car.name}} ({{car.color}})
-    </li>
-  </ul>
+    <p>Название нового автомобиля</p>
+    <input type="text"
+           class="form-control"
+           [(ngModel)]="newCarName" >
+    <p>Цвет нового автомобиля</p>
+    <input type="text"
+           class="form-control"
+           [(ngModel)]="newCarColor">
+    <hr>
+    <button class="btn btn-primary"
+            (click)="loadCars()"
+            [ngStyle]="{marginRight: '50px'}">
+        Отобразить машины
+    </button>
+    <button class="btn btn-primary"
+            (click)="addNewCar()">
+        Добавить авто
+    </button>
+    <hr>
+    <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let car of cars">
+            <span class="badge">
+                {{car.id}}</span> {{car.name}} ({{car.color}})
+        </li>
+    </ul>
 </div>

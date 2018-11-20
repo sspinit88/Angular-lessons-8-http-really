@@ -10,7 +10,8 @@ import {CarsService} from './cars.service';
 export class AppComponent implements OnInit {
 
     cars = [];
-
+    newCarName = '';
+    newCarColor = '';
 
     constructor(private CarsServices: CarsService) {
 
@@ -18,13 +19,27 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit() {
-
+        this.loadCars();
     }
 
+    // метод get
     loadCars() {
-        this.CarsServices.getCars().subscribe((response) => {
-            this.cars = response;
-        });
+        this.CarsServices
+            .getCars()
+            .subscribe((response) => {
+                this.cars = response;
+            });
+    }
+
+    // post
+    addNewCar() {
+        this.CarsServices
+            .addCar(this.newCarName, this.newCarColor)
+            .subscribe((json) => {
+                console.log(json);
+            });
+        this.newCarName = '';
+        this.newCarColor = '';
     }
 
 }
