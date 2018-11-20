@@ -74,7 +74,10 @@ export class AppComponent implements OnInit {
         this.CarsServices
             .deleteCar(car)
             .subscribe((data) => {
-                console.log(data);
+                // реализуем удаление объектов при нажатии на кнопку
+                // на каждой итерации будет создаваться объект 'с'
+                // если ее id не равно текущей авто, то обновить
+                this.cars = this.cars.filter(c => c.id !== car.id);
             });
     }
 
