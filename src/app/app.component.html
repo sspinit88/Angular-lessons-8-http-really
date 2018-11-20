@@ -2,7 +2,7 @@
     <p>Название нового автомобиля</p>
     <input type="text"
            class="form-control"
-           [(ngModel)]="newCarName" >
+           [(ngModel)]="newCarName">
     <p>Цвет нового автомобиля</p>
     <input type="text"
            class="form-control"
@@ -23,6 +23,7 @@
             *ngFor="let car of cars">
             <span class="badge">
                 {{car.id}}</span> {{car.name}} ({{car.color}})
+            <button class="btn btn-xs btn-info">Изменить цвет</button>
         </li>
     </ul>
 </div>
