@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
     loadCars() {
         this.CarsServices.getCars().subscribe((response) => {
-            console.log(response);
+            this.cars = response;
         });
     }
 
