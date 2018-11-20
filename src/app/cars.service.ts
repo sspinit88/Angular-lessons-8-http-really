@@ -41,4 +41,12 @@ export class CarsService {
             }));
     }
 
+    // delete
+    deleteCar(car: any) {
+        return this.http.delete(`http://localhost:3000/cars/${car.id}`)
+            .pipe(map(response => {
+                return response;
+            }));
+    }
+
 }

@@ -67,4 +67,15 @@ export class AppComponent implements OnInit {
             });
     }
 
+    // delete
+
+    deleteCar(car) {
+        console.log(car);
+        this.CarsServices
+            .deleteCar(car)
+            .subscribe((data) => {
+                console.log(data);
+            });
+    }
+
 }

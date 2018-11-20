@@ -25,7 +25,13 @@
                   [ngStyle]="{backgroundColor: car.color}">
                 {{car.id}}</span> {{car.name}} ({{car.color}})
             <button class="btn btn-xs btn-info"
-                    (click)="setRandomColor(car)">Изменить цвет</button>
+                    (click)="setRandomColor(car)">
+                Изменить цвет
+            </button>
+            <button class="btn btn-xs btn-danger"
+                    (click)="deleteCar(car)">
+                Удалить авто
+            </button>
         </li>
     </ul>
 </div>
