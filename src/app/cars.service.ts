@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class CarsService {
 
     constructor(private http: HttpClient) {
