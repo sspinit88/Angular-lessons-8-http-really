@@ -27,6 +27,13 @@ export class AppComponent implements OnInit {
     }
 
 
+    // в базу данных добавлен объект "title"
+    // далее, его нужно получить
+
+    // название нужно загрузить по старту приложения
+    // для этого используем OnInit
+
+
     ngOnInit() {
         this.loadCars();
     }
@@ -51,10 +58,8 @@ export class AppComponent implements OnInit {
         this.newCarColor = '';
     }
 
-    // post
-
     getRandomColor() {
-        const num = Math.round(Math.random() * (this.colors.length - 1));
+        const num = Match.round(Math.random() * (this.colors.length - 1));
         return this.colors[num];
     }
 
