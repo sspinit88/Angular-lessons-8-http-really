@@ -9,7 +9,7 @@ import {CarsService} from './cars.service';
 
 export class AppComponent implements OnInit {
 
-    cars: any[] = [];
+    cars = [];
     newCarName = '';
     newCarColor = '';
     colors = [
@@ -77,6 +77,7 @@ export class AppComponent implements OnInit {
                 // реализуем удаление объектов при нажатии на кнопку
                 // на каждой итерации будет создаваться объект 'с'
                 // если ее id не равно текущей авто, то обновить
+                console.log(data);
                 this.cars = this.cars.filter(c => c.id !== car.id);
             });
     }

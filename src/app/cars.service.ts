@@ -3,9 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class CarsService {
 
     constructor(private http: HttpClient) {
@@ -16,9 +14,13 @@ export class CarsService {
 
     // метод get
     getCars() {
-        const headers = new HttpHeaders();
+         const headers = new HttpHeaders({
+            'Content-Type': 'application/json; charset=ut8'
+        });
 
-        return this.http.get('http://localhost:3000/cars')
+        return this.http.get('http://localhost:3000/cars', {
+            headers: headers
+        })
             .pipe(map(response => {
                 return response;
             }));
