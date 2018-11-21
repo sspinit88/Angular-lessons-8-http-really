@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-
+import {catchError, map} from 'rxjs/operators';
+import {throwError} from 'rxjs/internal/observable/throwError';
 
 @Injectable()
 export class CarsService {
@@ -9,21 +9,28 @@ export class CarsService {
     constructor(private http: HttpClient) {
     }
 
-    // разберем добавление headers на примере get-запросов
-    // headers содержит массу полезных данных
+    // обработка ошибок
+
 
     // метод get
     getCars() {
-         const headers = new HttpHeaders({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json; charset=ut8'
         });
 
-        return this.http.get('http://localhost:3000/cars', {
+        return this.http.get('http://localhost:3700/cars', {
             headers: headers
         })
             .pipe(map(response => {
-                return response;
-            }));
+                    return response;
+                }),
+                // обработка ошибок
+                catchError((err) => {
+                    return throwError('Сервер недоступен. Попробуйте позже.');
+                })
+            );
+
+
     }
 
     // post

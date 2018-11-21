@@ -36,8 +36,12 @@ export class AppComponent implements OnInit {
         this.CarsServices
             .getCars()
             .subscribe((response) => {
-                this.cars = response;
-            });
+                    this.cars = response;
+                },
+                // обработка ошибок
+                (err) => {
+                    alert(err);
+                });
     }
 
     // post
